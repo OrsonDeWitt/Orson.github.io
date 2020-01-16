@@ -1,183 +1,72 @@
-<!DOCTYPE HTML>
+---
+layout: page
+title: My website
+subtitle: This is where I will tell my friends way too much about me
+use-site-title: true
+---
 
-<html>
+<div class="posts-list">
+  {% for post in paginator.posts %}
+  <article class="post-preview">
+    <a href="{{ post.url | relative_url }}">
+	  <h2 class="post-title">{{ post.title }}</h2>
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Orson De Witt, the author of &quot;Earth Won't Miss You&quot; and &quot;Orca Hunting School&quot;">
-<meta name="keywords" content="Orson De Witt,Orca Hunting School,Orson writer,Orson developer">
-          <title>Orson De Witt</title>
-  <link rel="stylesheet" type="text/css" media="screen" href="http://www.orsonDeWitt.github.io/blob/master/screen.css">
-  <script type="text/javascript" src="/jquery-2.1.4.min.js"></script>    
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-  <script src="//a.mailmunch.co/app/v1/site.js" id="mailmunch-script" data-mailmunch-site-id="540776" async="async"></script>
-  <script>(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src="//x.instagramfollowbutton.com/follow.js";s.parentNode.insertBefore(g,s);}(document,"script"));</script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<!-- Facebook Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
+	  {% if post.subtitle %}
+	  <h3 class="post-subtitle">
+	    {{ post.subtitle }}
+	  </h3>
+	  {% endif %}
+    </a>
 
-fbq('init', '253631861686832');
-fbq('track', "PageView");</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=253631861686832&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-</head>
+    <p class="post-meta">
+      Posted on {{ post.date | date: site.date_format }}
+    </p>
 
-<body>
-
-    <div id="page">
-
-       <header>
-             <a class="logo" title="Main Page" href="#"><span>Orson De Witt</span></a>
-			<a class="rflag" title="Russian" href="/ru/index.html"><span>Russian</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RU</a>
-			<a class="rflag2" title="Russian" href="/ru/index.html"><span>Russian</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RU</a>
-			<li class="language-select"><a><select onchange="document.location = '/'+ this.value;"><option value="en" selected>EN</option><option value="ru">RU</option></select></a></li>
-			 <a class="facebook" href="http://www.facebook.com/OrsonDeWitt" target="_blank" alt="Facebook" title="Follow on Facebook">Facebook</a>
-			<a class="twitter" href="http://twitter.com/intent/follow?source=followbutton&variant=1.0&screen_name=OrsonDeWitt" target="_blank" alt="Twitter" title="Follow on Twitter">Twitter</a>
-			 <a class="instagram" href="http://instagram.com/OrsonDeWitt" target="_blank" alt="Instagram" title="Follow on Instagram">Instagram</a>
-			<a class="youtube" href="http://instagram.com/OrsonDeWitt" target="_blank" alt="Youtube" title="Follow on Youtube">Youtube</a>
-			<img class="barrier" src="../barrier.png">
-			 
-             <div class="hero">
-				                     <!-- 
-                                                     <div class="info">
-		<input checked type="radio" name="respond" id="desktop">
-			<article id="slider">
-					<input checked type="radio" name="slider" id="switch1">
-					<input type="radio" name="slider" id="switch2">
-					<input type="radio" name="slider" id="switch3">
-					<input type="radio" name="slider" id="switch4">
-					<input type="radio" name="slider" id="switch5">
-				<div id="slides">
-					<div id="overflow">
-						<div class="image">
-							<article><img src="1.jpg"><button class="btn">Soon on Steam</button></article>
-							<article><img src="2.jpg"></article>
-							<article><img src="3.jpg"></article>
-							<article><img src="4.jpg"></article>
-							<article><img src="5.jpg"></article>
-						</div>
-					</div>
-				</div>
-				<div id="controls">
-					<label for="switch1"></label>
-					<label for="switch2"></label>
-					<label for="switch3"></label>
-					<label for="switch4"></label>
-					<label for="switch5"></label>
-				</div>
-				<div id="active">
-					<label for="switch1"></label>
-					<label for="switch2"></label>
-					<label for="switch3"></label>
-					<label for="switch4"></label>
-					<label for="switch5"></label>
-				</div>
-			</article>
-	</div>
-	           --><div class="mail">
-	 <center>
-  <script type="text/javascript" src="/email.js"></script></center></div>
-             </div>
-					
-             <nav>
-                <a class="mobile_menu" title="menu" href="#"></a>
-                <ul>
-            <li>
-			 <a title="About the game" href="/egypt/about.html">about</a>|
-			 <a href="/egypt/presskit.html">Press-Kit</a>|
-			 <a href="https://www.reddit.com/user/orsondewitt">reddit</a>|
-			 <a href="/egypt/contact.html">Contact</a>|
-			 <a title="Books written by Orson De Witt" href="http://orsondewitt.com/index.html">books</a>
-            </li>
-       </ul>
-	   
-			
-	   
-       </nav>
-        </header>
-		
-		
-<div class="darknav">
-<li class="language-select-footer"><a><select onchange="document.location = '/'+ this.value;"><option value="en" selected>English</option><option value="ru">Russian</option></select></a></li><br>
-    <a href="https://www.reddit.com/r/OrcinusGames/" target="_blank" alt="Reddit" title="Follow our Reddit for news!"><i class="fab fa-reddit hover-opacity fa-2x" style="color:#ff4500"></i></a>
-	  <a href="https://store.steampowered.com/developer/orcinusgames/" target="_blank" alt="Steam" title="Follow our Steam Creator Page for news!"><i class="fab fa-steam-square hover-opacity fa-2x" style="color:#da9a39"></i></a>
-      <a href="https://www.youtube.com/channel/UCdod8Lkks-QqSjm0epIHv-A" target="_blank" alt="YouTube" title="Follow on YouTube"><i class="fab fa-youtube hover-opacity fa-2x" style="color:#ff0000"></i></a>
-	    <a href="http://www.facebook.com/OrsonDeWitt" target="_blank" alt="Facebook" title="Follow on Facebook"><i class="fab fa-facebook hover-opacity fa-2x" style="color:#da9a39"></i></a>
-  <a href="http://instagram.com/OrsonDeWitt" target="_blank" alt="Instagram" title="Follow on Instagram"><i class="fab fa-instagram hover-opacity fa-2x" style="color:#ff4500"></i></a>
-  <br><font color="white">© 2018 Orcinus Games</font>
-</div>
-
-               <!--
-<div id="more" class="open">     If you like what you've read, don't hesitate to subscribe!       <br><br>
-
-
-
-</div>
-
-
-        <script>
-
-var first = document.getElementById('first'),
-
-     more = document.getElementById('more'),
-
-     trigger = document.createElement('span');
-
-trigger.id = 'trigger';
-
-trigger.innerHTML = 'Show less';
-
-first.appendChild(trigger);
-
-function toggleDiv() {
-
-  var state = more.className,
-
-       text = trigger.innerHTML;
-
-  more.className = (state == 'open') ? 'closed' : 'open';
-
-  trigger.innerHTML = (text == 'Read more') ? '' : 'Read more';
-
-}
-
-toggleDiv();
-
-if (trigger.addEventListener) {
-
-    trigger.addEventListener('click', toggleDiv, false);
-
-} else if (trigger.attachEvent) {
-
-  trigger.attachEvent('onclick', toggleDiv);
-
-} else {
-
-  trigger.onclick = toggleDiv;
-
-}
-
-</script>
-           -->
-
-
+    <div class="post-entry-container">
+      {% if post.image %}
+      <div class="post-image">
+        <a href="{{ post.url | relative_url }}">
+          <img src="{{ post.image | relative_url }}">
+        </a>
+      </div>
+      {% endif %}
+      <div class="post-entry">
+        {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }}
+        {% assign excerpt_word_count = post.excerpt | number_of_words %}
+        {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
+          <a href="{{ post.url | relative_url }}" class="post-read-more">[Read&nbsp;More]</a>
+        {% endif %}
+      </div>
     </div>
-</body>
 
-</html>
+    {% if post.tags.size > 0 %}
+    <div class="blog-tags">
+      Tags:
+      {% if site.link-tags %}
+      {% for tag in post.tags %}
+      <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
+      {% endfor %}
+      {% else %}
+        {{ post.tags | join: ", " }}
+      {% endif %}
+    </div>
+    {% endif %}
+
+   </article>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<ul class="pager main-pager">
+  {% if paginator.previous_page %}
+  <li class="previous">
+    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer Posts</a>
+  </li>
+  {% endif %}
+  {% if paginator.next_page %}
+  <li class="next">
+    <a href="{{ paginator.next_page_path | relative_url }}">Older Posts &rarr;</a>
+  </li>
+  {% endif %}
+</ul>
+{% endif %}
